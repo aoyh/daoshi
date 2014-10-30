@@ -1,0 +1,17 @@
+{
+    "contents" : "library(XML)\n#till 1507-1650, 1651-1670, 1671-1678, 1680:1735\n# 1679 does not exist\nfrom <- 1507\nto <- 1735\npages <- paste0(\"http://www.wddsnxn.org/\", seq(from, to), \".html\")\npages <- pages[-173]\nthelist <- sapply(pages, function(x) {\ndoc <- htmlTreeParse(x, useInternal = TRUE)\nh1 <- sapply(getNodeSet(doc, '//div[@class=\"chaptertitle clearfix\"]/h1'), xmlValue)\nbody <- sapply(getNodeSet(doc, '//div[@id=\"BookText\"]'), xmlValue)\ngsub(\"                  \", \"\",paste(h1, body, sep = \"\\n\\r\"))\n})\n\nfor (i in 1:length(thelist)) {ifelse(i == 1,\n                                   out <- thelist[[i]],\n                                   out <- paste0(out, \"\\n\\r\", \"@\", i, thelist[[i]])\n                            )}\n\nwriteLines(out, paste0(\"out_\", from, \"_\", to, \".txt\"))\n\n#system.time(source(\"scrape.R\")) \n",
+    "created" : 1412688427497.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3007311384",
+    "id" : "D3814F24",
+    "lastKnownWriteTime" : 1414112843,
+    "path" : "~/daoshi/scrape.R",
+    "project_path" : "scrape.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

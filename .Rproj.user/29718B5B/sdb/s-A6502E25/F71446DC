@@ -1,0 +1,17 @@
+{
+    "contents" : "\r\n\r\nfrom <- 248\r\nto <- 366\r\npages <- paste0(\"http://www.shanhaimiwenlu.com/\", c(245, seq(from, to)), \".html\")",
+    "created" : 1414443753811.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "636252372",
+    "id" : "F71446DC",
+    "lastKnownWriteTime" : 1414443904,
+    "path" : "~/shmwl/scrape_shmwl.R",
+    "project_path" : null,
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}
